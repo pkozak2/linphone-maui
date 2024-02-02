@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="linphone_maui.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <HorizontalStackLayout
+                HorizontalOptions="FillAndExpand"
+                Spacing="10"
+                VerticalOptions="FillAndExpand">
+                <Button
+                    x:Name="opusToggle"
+                    Clicked="onOpusToggleClicked"
+                    HorizontalOptions="Center"
+                    Text="toggle Opus" />
+                <Button
+                    x:Name="opusState"
+                    Clicked="onOpusStateClicked"
+                    HorizontalOptions="Center"
+                    Text="refresh Opus State" />
+                <Label
+                    x:Name="opusStateLabel"
+                    HorizontalOptions="Center"
+                    Text="" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
