@@ -5,11 +5,98 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
-            <HorizontalStackLayout
-                HorizontalOptions="FillAndExpand"
-                Spacing="10"
-                VerticalOptions="FillAndExpand">
+        <VerticalStackLayout
+            x:Name="stack_layout"
+            HorizontalOptions="FillAndExpand"
+            Spacing="15"
+            VerticalOptions="FillAndExpand">
+            <Label
+                x:Name="welcome"
+                HorizontalOptions="Center"
+                Text="Welcome to Linphone Xamarin!" />
+            <Button
+                x:Name="unregister"
+                Clicked="unregister_Clicked"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="Unregister" />
+
+            <VerticalStackLayout x:Name="stack_registrar">
+                <Entry
+                    x:Name="username"
+                    Placeholder="Username"
+                    Text="301" />
+                <Entry
+                    x:Name="password"
+                    IsPassword="true"
+                    Placeholder="Password"
+                    Text="301" />
+                <Entry
+                    x:Name="domain"
+                    Placeholder="Domain"
+                    Text="10.10.10.112" />
+                <Entry
+                    x:Name="port"
+                    Placeholder="Domain"
+                    Text="5061" />
+                <Picker x:Name="transport" />
+                <Button
+                    x:Name="register"
+                    Clicked="OnRegisterClicked"
+                    HorizontalOptions="Center"
+                    Text="Register" />
+            </VerticalStackLayout>
+            <Label x:Name="registration_status" HorizontalOptions="Center" />
+
+            <Entry x:Name="address" Placeholder="Address" />
+            <Button
+                x:Name="call"
+                Clicked="OnCallClicked"
+                HorizontalOptions="Center"
+                Text="Start Call" />
+            <Button
+                x:Name="video_call"
+                Clicked="OnVideoCallClicked"
+                HorizontalOptions="Center"
+                Text="Start Video Call" />
+            <Label x:Name="call_status" HorizontalOptions="Center" />
+            <Label x:Name="call_stats" HorizontalOptions="Center" />
+
+            <Entry x:Name="chatMessage" Placeholder="Chat message" />
+            <Button
+                x:Name="sendMessage"
+                Clicked="OnMessageClicked"
+                HorizontalOptions="Center"
+                Text="Send message" />
+
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button
+                    x:Name="video"
+                    Clicked="OnVideoClicked"
+                    HorizontalOptions="Center"
+                    IsEnabled="False"
+                    Text="Start Video" />
+                <Button
+                    x:Name="camera"
+                    Clicked="OnCameraClicked"
+                    HorizontalOptions="Center"
+                    IsEnabled="False"
+                    Text="Change Camera" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button
+                    x:Name="logs"
+                    Clicked="onUploadLogsCliked"
+                    HorizontalOptions="Center"
+                    Text="Upload Logs" />
+                <Label
+                    x:Name="logsUrl"
+                    HorizontalOptions="Center"
+                    Text="" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Button
                     x:Name="opusToggle"
                     Clicked="onOpusToggleClicked"

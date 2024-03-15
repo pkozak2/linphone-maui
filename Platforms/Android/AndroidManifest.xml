@@ -1,16 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true"></application>
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.RECORD_AUDIO" />
-	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
-	<uses-permission android:name="android.permission.CAMERA" />
+	<!-- To be able to display contacts list & match calling/called numbers -->
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<!-- For in-app contact edition -->
+	<uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+	<!-- Helps filling phone number and country code in assistant -->
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
-	<uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+
+	<!-- Needed for auto start at boot and to ensure the service won't be killed by OS while in call -->
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+	<!-- Starting Android 13 we need to ask notification permission -->
+	<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+	<!-- Needed for full screen intent in incoming call notifications -->
+	<uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+	<!-- To vibrate when pressing DTMF keys on numpad & incoming calls -->
+	<uses-permission android:name="android.permission.VIBRATE" />
+
+	<!-- Needed to attach file(s) in chat room fragment -->
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+	<!-- Starting Android 13 you need those 3 permissions instead (https://developer.android.com/about/versions/13/behavior-changes-13) -->
+	<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+	<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+	<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
+	<!-- Needed to shared downloaded files if setting is on -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+	<!-- Both permissions below are for contacts sync account, needed to store presence in native contact if enabled -->
+	<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+	<!-- Needed for Telecom Manager -->
+	<uses-permission android:name="android.permission.MANAGE_OWN_CALLS"/>
+	<uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+	<!-- Needed for overlay -->
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+	<!-- Needed to check current Do not disturb policy -->
+	<uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+	<!-- Needed for foreground service
+    (https://developer.android.com/guide/components/foreground-services) -->
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+	<!-- Needed for Android 14
+    https://developer.android.com/about/versions/14/behavior-changes-14#fgs-types -->
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	
 </manifest>

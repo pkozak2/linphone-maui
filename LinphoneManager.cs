@@ -42,6 +42,8 @@ namespace linphone_maui
             Timer.Elapsed += OnTimedEvent;
             Timer.Enabled = true;
             Core.Start();
+          //  Factory.Instance.
+            
         }
 
         private void OnTimedEvent(object sender, System.Timers.ElapsedEventArgs e)

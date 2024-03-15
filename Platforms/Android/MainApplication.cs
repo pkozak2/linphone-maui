@@ -37,6 +37,7 @@ namespace linphone_maui
             }
             App.ConfigFilePath = rc_path;
             App.FactoryFilePath = factory_path;
+
         }
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
