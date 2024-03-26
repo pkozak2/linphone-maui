@@ -112,6 +112,7 @@ namespace linphone_maui
             Core.Listener.OnCallStatsUpdated += OnStats;
             Core.Listener.OnLogCollectionUploadStateChanged += OnLogCollectionUpload;
 
+            videoStateLabel.Text = Core.VideoCaptureEnabled.ToString();
 
             Transports = new Dictionary<string, TransportType>
             {
@@ -167,6 +168,8 @@ namespace linphone_maui
             //Core.DefaultProxyConfig = proxyConfig;
 
             //Core.RefreshRegisters();
+
+            var a = Core.AccountList.ToList();
         }
 
         public void OnChatMessageSent(ChatRoom room, EventLog log)
@@ -333,6 +336,18 @@ namespace linphone_maui
         {
             Core.ClearAllAuthInfo();
             Core.ClearAccounts();
+        }
+
+        private void videoToggle_Clicked(object sender, EventArgs e)
+        {
+            Core.VideoCaptureEnabled = !Core.VideoCaptureEnabled;
+            videoStateLabel.Text = Core.VideoCaptureEnabled.ToString();
+
+        }
+
+        private void videoState_Clicked(object sender, EventArgs e)
+        {
+            videoStateLabel.Text = Core.VideoCaptureEnabled.ToString();
         }
     }
 

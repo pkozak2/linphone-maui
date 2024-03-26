@@ -112,6 +112,23 @@
                     HorizontalOptions="Center"
                     Text="" />
             </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button
+                    x:Name="videoToggle"
+                    Clicked="videoToggle_Clicked"
+                    HorizontalOptions="Center"
+                    Text="toggle video" />
+                <Button
+                    x:Name="videoState"
+                    Clicked="videoState_Clicked"
+                    HorizontalOptions="Center"
+                    Text="refresh video State" />
+                <Label
+                    x:Name="videoStateLabel"
+                    HorizontalOptions="Center"
+                    Text="" />
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 

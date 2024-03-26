@@ -20,9 +20,9 @@ namespace linphone_maui
         public App()
         {
             InitializeComponent();
-            var a = new PlatformHandlerService().GetPlatformHandler();
-            Manager = new LinphoneManager();
-            Manager.Init(ConfigFilePath, FactoryFilePath, a);
+            //var a = new PlatformHandlerService().GetPlatformHandler();
+            //Manager = new LinphoneManager();
+            //Manager.Init(ConfigFilePath, FactoryFilePath, a);
 
             MainPage = new AppShell();
         }
@@ -30,7 +30,7 @@ namespace linphone_maui
         protected override void OnStart()
         {
             base.OnStart();
-            Manager.Start();
+            
         }
     }
 }
